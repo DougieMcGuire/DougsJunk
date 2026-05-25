@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doug's Junk — Coming Soon</title>
+<meta name="description" content="Doug's Junk — Your Treasure. Coming soon to 125 South Dodge St, Algona, Iowa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --blue:#0206d5; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{min-height:100%;}
+  body{
+    font-family:'Outfit',sans-serif;
+    background:var(--blue);
+    color:#fff;
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow-x:hidden;
+    position:relative;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
+    background:
+      radial-gradient(120% 90% at 50% -10%, rgba(255,255,255,.14), transparent 55%),
+      radial-gradient(100% 80% at 50% 120%, rgba(0,0,0,.28), transparent 60%);
+  }
+
+  .wrap{
+    position:relative;z-index:2;
+    width:100%;max-width:780px;
+    padding:clamp(1.75rem,6vw,3.5rem) clamp(1.25rem,5vw,2.5rem);
+    text-align:center;
+  }
+
+  .logo{
+    width:100%;max-width:660px;height:auto;display:block;margin:0 auto;
+  }
+
+  .badge{
+    display:inline-block;
+    margin-top:clamp(1.75rem,6vw,3rem);
+    background:#fff;color:var(--blue);
+    font-family:'Fredoka',sans-serif;font-weight:600;
+    text-transform:uppercase;letter-spacing:.05em;
+    font-size:clamp(1.05rem,4.4vw,2.2rem);
+    padding:.5em 1.15em;
+    border-radius:999px;
+    box-shadow:0 9px 0 rgba(0,0,0,.18), 0 16px 28px rgba(0,0,0,.22);
+    transform:rotate(-1.5deg);
+  }
+
+  .addr{
+    margin-top:clamp(1.3rem,4vw,2rem);
+    font-family:'Outfit',sans-serif;font-weight:600;
+    font-size:clamp(1rem,3.6vw,1.4rem);
+    letter-spacing:.02em;
+  }
+  .addr .pin{display:inline-block;transform:translateY(2px);margin-right:.3em;}
+  .addr .city{display:block;opacity:.78;font-weight:500;margin-top:.15em;}
+
+  .map{
+    margin-top:clamp(1.5rem,5vw,2.4rem);
+    width:100%;
+    aspect-ratio:16/9;
+    border:5px solid #fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 14px 30px rgba(0,0,0,.3);
+    background:#fff;
+  }
+  .map iframe{width:100%;height:100%;border:0;display:block;}
+
+  .reveal{opacity:0;transform:translateY(20px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards;}
+  .d1{animation-delay:.05s;} .d2{animation-delay:.28s;}
+  .d3{animation-delay:.44s;} .d4{animation-delay:.6s;}
+  @keyframes rise{to{opacity:1;transform:translateY(0);}}
+  @media (prefers-reduced-motion: reduce){ .reveal{animation:none;opacity:1;transform:none;} }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <img class="logo reveal d1" src="logo.png" alt="Doug's Junk — Your Treasure">
+
+    <div class="badge reveal d2">Coming Soon</div>
+
+    <p class="addr reveal d3">
+      <span class="street"><span class="pin">&#128205;</span>125 South Dodge St</span>
+      <span class="city">Algona, Iowa</span>
+    </p>
+
+    <div class="map reveal d4">
+      <iframe
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=125+South+Dodge+St,+Algona,+IA+50511&output=embed"
+        title="Doug's Junk location map"></iframe>
+    </div>
+  </main>
+</body>
+</html>
